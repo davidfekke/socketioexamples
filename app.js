@@ -15,7 +15,7 @@ var path = require('path');
 //var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', 3000); //process.env.PORT || 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 //app.use(app.favicon());
