@@ -1,0 +1,19 @@
+<h1>Socket IO Example 2</h1>
+<button id="doSomething">Push Me</button>
+<div id="myDiv"></div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  (function() {
+	var socket = io.connect('http://localhost:3000');
+	var myButton = document.getElementById('doSomething');
+	var myDiv = document.getElementById('myDiv');
+	
+	myButton.addEventListener('click',function()
+	{
+		socket.emit('sample2', { mydata: 'some data'});
+	});
+	socket.on('sample2res', function (data) {
+		myDiv.innerHTML = '<p>' + data + '</p>';
+	});
+  })()
+</script>

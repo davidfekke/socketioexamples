@@ -35,10 +35,18 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
 
+app.get('/sample2', function (req, res) {
+  res.sendfile(__dirname + '/public/sample2.html');
+});
+
 io.sockets.on('connection', function (socket) {
   socket.emit('news', { hello: 'world' });
   socket.on('my other event', function (data) {
     console.log(data);
+  });
+  socket.on('sample2', function (data) {
+    console.log('mytime: ' + data.mydata);
+	socket.emit('sample2res', 'This is my response ' + new Date().getTime());
   });
 });
 
