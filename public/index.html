@@ -1,10 +1,18 @@
-<h1>Socket IO Example 1</h1>
+<!doctype html>
+<html>
+	<head>
+		<title>Example 1</title>
+	</head>
+	<body>
+		<h1>Socket IO Example 1</h1>
 
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io.connect('http://localhost:3000');
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { my: 'data' });
-  });
-</script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+		  var socket = io.connect('http://localhost:3000');
+		  socket.on('news', function (data) {
+			console.log(data);
+			socket.emit('my other event', { my: 'data' });
+		  });
+		</script>
+	</body>
+</html>
